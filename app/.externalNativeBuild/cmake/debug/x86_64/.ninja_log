@@ -1,0 +1,25 @@
+# ninja log v5
+0	108	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+109	592	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+2	172	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+172	1180	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+2	90	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+90	158	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+1	87	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+87	152	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+2	86	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+86	160	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+1	89	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+89	152	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+1	94	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+94	160	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+1	111	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+111	184	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+1	91	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+91	155	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+1	95	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+95	167	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+2	93	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+93	163	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
+2	93	0	CMakeFiles/gl2jni.dir/gl_code.cpp.o	b12dbf5a0a78afbf
+93	163	0	D:/Work/workspace/OpenGL/android-ndk-master/hello-gl2/app/build/intermediates/cmake/debug/obj/x86_64/libgl2jni.so	6c97cbcb94d686ab
