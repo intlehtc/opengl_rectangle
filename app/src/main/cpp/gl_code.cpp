@@ -42,17 +42,26 @@ static void checkGlError(const char* op) {
     }
 }
 
-auto gVertexShader =
-    "attribute vec4 vPosition;\n"
-    "void main() {\n"
-    "  gl_Position = vPosition;\n"
-    "}\n";
+const char gVertexShader[] =
+        "#version 300 es                            \n"
+                "layout(location = 0) in vec4 a_position;   \n"
+                "layout(location = 1)  in  vec4 a_color;      \n"
+                " out  vec4 v_color;                          \n"
+                "void main()                                \n"
+                "{                                          \n"
+                "    v_color = a_color;                     \n"
+                "    gl_Position = a_position;              \n"
+                "}";
 
-auto gFragmentShader =
-    "precision mediump float;\n"
-    "void main() {\n"
-    "  gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\n"
-    "}\n";
+const char  gFragmentShader[] =
+        "#version 300 es            \n"
+                "precision mediump float;   \n"
+                " in  vec4 v_color;           \n"
+               " out  vec4 o_fragColor;      \n"
+                "void main()                \n"
+                "{                          \n"
+                "    o_fragColor = v_color; \n"
+                "}" ;
 
 GLuint loadShader(GLenum shaderType, const char* pSource) {
     GLuint shader = glCreateShader(shaderType);
@@ -119,7 +128,7 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
 }
 
 GLuint gProgram;
-GLuint gvPositionHandle;
+//GLuint gvPositionHandle;
 
 bool setupGraphics(int w, int h) {
     printGLString("Version", GL_VERSION);
@@ -135,18 +144,36 @@ bool setupGraphics(int w, int h) {
     }
 
     //获取属性变量vPosition在着色器程序中的地址
-    gvPositionHandle = glGetAttribLocation(gProgram, "vPosition");
-    checkGlError("glGetAttribLocation");
-    LOGI("glGetAttribLocation(\"vPosition\") = %d\n",
-            gvPositionHandle);
+  //  gvPositionHandle = glGetAttribLocation(gProgram, "vPosition");
+ //   checkGlError("glGetAttribLocation");
+ //   LOGI("glGetAttribLocation(\"vPosition\") = %d\n",
+   //         gvPositionHandle);
 
-    glViewport(0, 0, w/2, h/2); //调用glViewPort函数来决定视见区域，告诉OpenGL应把渲染之后的图形绘制在窗体的哪个部位
+    glViewport(0, 0, w, h); //调用glViewPort函数来决定视见区域，告诉OpenGL应把渲染之后的图形绘制在窗体的哪个部位
     checkGlError("glViewport");
     return true;
 }
-
+/*
 const GLfloat gTriangleVertices[] = { 0.0f, 0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f };
+        0.5f, -0.5f };*/
+const GLfloat gTriangleVertices[] =
+        {
+                -0.5, -0.5, 0,  //左下
+                0.5, -0.5, 0,  //右下
+                -0.5,  0.5, 0,  //左上
+                0.5,  0.5, 0,  //右上
+        };
+
+//const GLfloat color[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
+
+//4个点的颜色(分别表示RGBA值)
+const GLfloat gColor[] = {
+
+        1,1,1,1,
+        0,1,0,1,
+        0,0,1,1,
+        0,0,0,1,
+};
 
 void renderFrame() {
     static float grey;
@@ -167,11 +194,18 @@ void renderFrame() {
      * glVertexAttribPointer只是建立CPU和GPU之间的逻辑连接，从而实现了CPU数据上传至GPU。
      * 但是，数据在GPU端是否可见，即，着色器能否读取到数据，由是否启用了对应的属性决定，这就是glEnableVertexAttribArray的功能，允许顶点着色器读取GPU（服务器端）数据。
 */
-    glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, gTriangleVertices);
-    checkGlError("glVertexAttribPointer");
-    glEnableVertexAttribArray(gvPositionHandle);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, gTriangleVertices);
+
+    glEnableVertexAttribArray(0);
     checkGlError("glEnableVertexAttribArray");
-    glDrawArrays(GL_TRIANGLES, 0, 3);    // 参数3：顶点数量  参数2：从哪个顶点开始绘制
+
+   glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, gColor);
+
+    glEnableVertexAttribArray(1);
+
+  // glVertexAttrib4fv ( 1, color );
+
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);    // 参数3：顶点数量  参数2：从哪个顶点开始绘制
     checkGlError("glDrawArrays");
 }
 
